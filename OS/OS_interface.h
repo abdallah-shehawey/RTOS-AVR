@@ -9,17 +9,27 @@
 
 #ifndef RTOS_INTERFACE_H_
 #define RTOS_INTERFACE_H_
+
+
+#define OK                     0
+#define NOK                    1
+#define NULL_POINTER           2
+#define BUSY_STATE             3
+#define TIMEOUT_STATE          4
+
+#define NULL                   0
+
 #include <stdint.h>
 
 void RTOS_voidStart(void);
 
-uint8_t RTOS_u8CreateTask(uint8_t Copy_u8Priority, uint16_t Copy_u16Periodicity, void (*Copy_pvTaskFunc)(void),
-                          uint16_t Copy_u16FirstDelay);
+uint8_t RTOS_uint8_tCreateTask(uint8_t Copy_uint8_tPriority, uint16_t Copy_uint16_tPeriodicity, void (*Copy_pvTaskFunc)(void),
+                          uint16_t Copy_uint16_tFirstDelay);
 
-void RTOS_voidSuspendTask(uint8_t Copy_u8Priority);
+void RTOS_voidSuspendTask(uint8_t Copy_uint8_tPriority);
 
-void RTOS_voidResumeTask(uint8_t Copy_u8Priority);
+void RTOS_voidResumeTask(uint8_t Copy_uint8_tPriority);
 
-void RTOS_voidDeleteTask(uint8_t Copy_u8Priority);
+void RTOS_voidDeleteTask(uint8_t Copy_uint8_tPriority);
 
 #endif

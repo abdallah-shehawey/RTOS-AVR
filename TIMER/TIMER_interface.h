@@ -9,8 +9,17 @@
 
 #ifndef TIMER_INTERFACE_H_
 #define TIMER_INTERFACE_H_
-#include "../APP_Layer/STD_TYPES.h"
 /* Define indexes for the global pointer to func for ISR  */
+#include <stdint.h>
+
+#define OK                     0
+#define NOK                    1
+#define NULL_POINTER           2
+#define BUSY_STATE             3
+#define TIMEOUT_STATE          4
+
+#define NULL                   0
+
 
 #define TIMER0_OVF_VECTOR_ID                                 11
 #define TIMER0_CTC_VECTOR_ID                                 10
@@ -94,35 +103,35 @@
 #define TIMER1_FAST_PWM_ICR1_MODE                            14
 #define TIMER1_FAST_PWM_OCR1A_MODE                           15
 
-#define TIMER_u8_ICP_FALLING_EDGE                            0
-#define TIMER_u8_ICP_RAISING_EDGE                            1
+#define TIMER_uint8_t_ICP_FALLING_EDGE                            0
+#define TIMER_uint8_t_ICP_RAISING_EDGE                            1
 
 /*___________________________________________________________________________________________________________________*/
 
 /* Interface Function */
 void TIMER0_vInit                  (void                                                     );
-void TIMER0_vSetPreload            (u8 Copy_u8Preload                                        );
-void TIMER0_vSetCTC                (u8 Copy_u8CTC                                            );
-u8 TIMER0_u8GetTimerCounterValue   (void                                                     );
-void Timer0_vSetPrescaler          (u8 Prescaler                                             );
+void TIMER0_vSetPreload            (uint8_t Copy_uint8_tPreload                                        );
+void TIMER0_vSetCTC                (uint8_t Copy_uint8_tCTC                                            );
+uint8_t TIMER0_u8GetTimerCounterValue   (void                                                     );
+void Timer0_vSetPrescaler          (uint8_t Prescaler                                             );
 
 /*******************************/
 
 void TIMER_vICUInitEnable           (void                                                    );
-u8 TIMER_vICUSetTriggerEdge         (u8 Copy_u8Edge                                          );
+uint8_t TIMER_vICUSetTriggerEdge         (uint8_t Copy_uint8_tEdge                                          );
 void TIMER_vICUEnableInterrupt      (void                                                    );
 void TIMER_vICUDisableInterrupt     (void                                                    );
-u16 TIMER_u16GetICR                 (void                                                    );
+uint16_t TIMER_u16GetICR                 (void                                                    );
 
-void TIMER_vSetPWM                  (u16 Copy_u16CompareValue                                );
-u8 TIMER_u8GetPWMOnPeriod           (u16 *Copy_pu16OnPeriod                                  );
-u8 TIMER_u8GetPWMTotalPeriod        (u32 *Copy_pu32TotalPeriod                               );
-u8 TIMER_u8GetPWMDutyCycle          (u8 *Copy_pu8DutyCycle                                   );
+void TIMER_vSetPWM                  (uint16_t Copy_uint16_tCompareValue                                );
+uint8_t TIMER_u8GetPWMOnPeriod           (uint16_t *Copy_puint16_tOnPeriod                                  );
+uint8_t TIMER_u8GetPWMTotalPeriod        (uint32_t *Copy_puint132_tTotalPeriod                               );
+uint8_t TIMER_u8GetPWMDutyCycle          (uint8_t *Copy_puint8_tDutyCycle                                   );
 void TIMER_vWDTSleep                (void                                                    );
 void TIMER_vWDTEnable               (void                                                    );
 void TIMER_vWDTDisable              (void                                                    );
 
-u8 TIMER_u8SetCallBack              (void (*Copy_pvCallBackFunc)(void), u8 Copy_u8VectorID   );
+uint8_t TIMER_u8SetCallBack              (void (*Copy_pvCallBackFunc)(void), uint8_t Copy_uint8_tVectorID   );
 
 
 

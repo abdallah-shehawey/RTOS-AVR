@@ -6,8 +6,8 @@
  *  SWC    : TIMER
  *
  */
+#include <stdint.h>
 
-#include "../APP_Layer/STD_TYPES.h"
 #include "../APP_Layer/STD_MACROS.h"
 
 #include "TIMER_interface.h"
@@ -115,17 +115,17 @@ void TIMER0_vInit(void)
 }
 
 /*******************************************************************************************************************/
-void TIMER0_vSetPreload (u8 Copy_u8Preload)
+void TIMER0_vSetPreload (uint8_t Copy_uint8_tPreload)
 {
-	TCNT0 = Copy_u8Preload ;
+	TCNT0 = Copy_uint8_tPreload ;
 }
 
-void TIMER0_vSetCTC (u8 Copy_u8CTC)
+void TIMER0_vSetCTC (uint8_t Copy_uint8_tCTC)
 {
-	OCR0 = Copy_u8CTC ;
+	OCR0 = Copy_uint8_tCTC ;
 }
 
-u8 TIMER0_u8GetTimerCounterValue (void)
+uint8_t TIMER0_uint8_tGetTimerCounterValue (void)
 {
 	return TCNT0 ;
 }
@@ -134,7 +134,7 @@ u8 TIMER0_u8GetTimerCounterValue (void)
 
 
 /*******************************************************************************************************************/
-void Timer0_vSetPrescaler(u8 Prescaler)
+void Timer0_vSetPrescaler(uint8_t Prescaler)
 {
 	/*Set the Required Prescaler*/
 	TCCR0 &= TIMER_PRESCALER_MASK ;
@@ -158,20 +158,20 @@ void TIMER_vICUDisableInterrupt(void)
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 
-u8 TIMER_u8SetCallBack(void (*Copy_pvCallBackFunc)(void) , u8 Copy_u8VectorID)
+uint8_t TIMER_u8SetCallBack(void (*Copy_pvCallBackFunc)(void) , uint8_t Copy_uint8_tVectorID)
 {
-	u8 Local_u8ErrorState = OK ;
+	uint8_t Local_uint8_tErrorState = OK ;
 
 	if (Copy_pvCallBackFunc != NULL)
 	{
-		TIMERS_pvCallBackFunc[Copy_u8VectorID] = Copy_pvCallBackFunc ;
+		TIMERS_pvCallBackFunc[Copy_uint8_tVectorID] = Copy_pvCallBackFunc ;
 	}
 	else
 	{
-		Local_u8ErrorState = NULL_POINTER ;
+		Local_uint8_tErrorState = NULL_POINTER ;
 	}
 
-	return Local_u8ErrorState ;
+	return Local_uint8_tErrorState ;
 }
 
 /*TIMER0 Normal Mode ISR*/

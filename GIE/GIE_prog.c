@@ -6,9 +6,8 @@
  *  SWC    : GIE
  *
  */
-
+#include <stdint.h>
 #include "../APP_Layer/STD_MACROS.h"
-#include "../APP_Layer/STD_TYPES.h"
 
 #include "GIE_interface.h"
 #include "GIE_register.h"

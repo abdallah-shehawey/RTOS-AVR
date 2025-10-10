@@ -10,7 +10,7 @@
 #ifndef TIMER_PRIVATE_H_
 #define TIMER_PRIVATE_H_
 
-#define TIMSK                  *((volatile u8 *)0X59)
+#define TIMSK                  *((volatile uint8_t *)0X59)
 /*  TMISK Bits */
 #define TIMSK_TOIE0            0
 #define TIMSK_OCIE0            1
@@ -21,7 +21,7 @@
 #define TIMSK_TOIE2            6
 #define TIMSK_OCIE2            7
 
-#define TIFR                   *((volatile u8 *)0X58)
+#define TIFR                   *((volatile uint8_t *)0X58)
 /* TIFR BITS */
 #define TIFR_TOV0              0
 #define TIFR_OCF0              1
@@ -35,9 +35,9 @@
 /*___________________________________________________________________________________________________________________*/
 
 /* Timer0 Register*/
-#define TCCR0                  *((volatile u8 *)0X53)
-#define TCNT0                  *((volatile u8 *)0X52)
-#define OCR0                   *((volatile u8 *)0X5C)
+#define TCCR0                  *((volatile uint8_t *)0X53)
+#define TCNT0                  *((volatile uint8_t *)0X52)
+#define OCR0                   *((volatile uint8_t *)0X5C)
 
 /*Timer0 BITS*/
 #define TCCR0_FOC0             7
